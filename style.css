@@ -1,0 +1,90 @@
+/* ========================================
+  Default Mobile Styles
+  ========================================
+*/
+
+/* Đặt box-sizing cho tất cả các phần tử để quản lý layout dễ dàng hơn */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Vùng chứa cho tất cả các phần nội dung */
+.container {
+    width: 100%;
+}
+
+/* Kiểu cho mỗi phần nội dung riêng lẻ */
+.section {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px; /* Khoảng cách giữa các div trong giao diện di động */
+    width: 100%; /* Chiều rộng đầy đủ cho giao diện di động */
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #555;
+}
+
+.section img {
+    width: 100%; /* Làm cho hình ảnh responsive */
+    height: auto;
+    border-radius: 5px;
+}
+
+/* ========================================
+  Media Query #1: Tablet View
+  Kích hoạt ở 772px
+  ========================================
+*/
+@media (min-width: 772px) {
+    .container {
+        /* Sử dụng Flexbox để căn chỉnh và tạo khoảng cách dễ dàng */
+        display: flex;
+        flex-wrap: wrap; /* Cho phép các mục xuống dòng tiếp theo */
+        justify-content: space-between; /* Tạo khoảng trống giữa các mục */
+    }
+
+    .section {
+        /* Đặt chiều rộng thành 45% để vừa hai div mỗi hàng với khoảng trống ở giữa.
+           Chúng tôi sử dụng flex-basis để kiểm soát tốt hơn trong một flex container.
+        */
+        flex-basis: 45%; 
+        margin-bottom: 20px; /* Giữ khoảng cách dọc */
+    }
+
+    .section img {
+        /* Đặt chiều cao tối đa cho hình ảnh trong giao diện máy tính bảng */
+        max-height: 30vh; /* 30% chiều cao của viewport */
+        object-fit: cover; /* Đảm bảo hình ảnh bao phủ khu vực mà không bị biến dạng */
+    }
+}
+
+/* ========================================
+  Media Query #2: Large Screen View
+  Kích hoạt ở 998px
+  ========================================
+*/
+@media (min-width: 998px) {
+    .section {
+        /* Đặt chiều rộng thành 30% để vừa ba div mỗi hàng.
+           100% / 3 xấp xỉ 33.33%. Chúng tôi sử dụng 30% để đảm bảo có đủ không gian.
+        */
+        flex-basis: 30%;
+    }
+}
